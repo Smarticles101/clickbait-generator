@@ -8,7 +8,14 @@ const clickbaitlist: Array<String> = clickbait.prefixes.flatMap((p) =>
 const router: Router = Router();
 
 router.get("/random", (req, res) => {
-  res.send(clickbaitlist[Math.floor(Math.random() * clickbaitlist.length)]);
+  const id = Math.floor(Math.random() * clickbaitlist.length);
+
+  res.send({"headline": clickbaitlist[id], "id": id});
+});
+
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  res.send({"headline": clickbaitlist[parseInt(id)], "id": id});
 });
 
 export const ClickbaitRouter: Router = router;
