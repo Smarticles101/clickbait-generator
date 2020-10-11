@@ -1,8 +1,8 @@
 import express from "express";
 import { ClickbaitRouter } from "./routes/clickbait";
+const port = process.env.PORT || 8080;
 
 const app = express();
-const port = 3000;
 app.get("/", (req, res) => {
   res.send("The sedulous hyena ate the antelope!");
 });
